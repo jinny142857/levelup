@@ -349,6 +349,103 @@ canvas.game-canvas {
   background: linear-gradient(0deg, rgba(10, 14, 36, 0.75), transparent);
 }
 
+/* Touch controls: hidden by default (mouse/trackpad), shown on touch-only devices */
+.touch-controls {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .touch-controls {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 15;
+  }
+
+  /* On-screen buttons are self-explanatory; free up the bottom strip for the D-pad. */
+  .hud-bottom {
+    display: none;
+  }
+
+  .interact-btn {
+    margin-bottom: 190px;
+  }
+}
+
+.dpad {
+  position: absolute;
+  left: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 168px;
+  height: 168px;
+  display: grid;
+  grid-template-columns: 56px 56px 56px;
+  grid-template-rows: 56px 56px 56px;
+  pointer-events: auto;
+}
+
+.dpad-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  background: rgba(10, 14, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dpad-btn:active {
+  background: rgba(110, 123, 255, 0.55);
+}
+
+.dpad-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dpad-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.dpad-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.dpad-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.jump-btn {
+  position: absolute;
+  right: 24px;
+  bottom: calc(26px + env(safe-area-inset-bottom, 0px));
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #ffd166, #ff9ecb);
+  color: #2b1a3e;
+  font-size: 16px;
+  font-weight: 800;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.jump-btn:active {
+  filter: brightness(0.9);
+}
+
 /* Quiz modal */
 .modal-overlay {
   position: absolute;

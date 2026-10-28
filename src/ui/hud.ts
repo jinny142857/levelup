@@ -85,7 +85,7 @@ export class Hud {
 
     const bottomBar = document.createElement("div");
     bottomBar.className = "hud-bottom";
-    bottomBar.textContent = "⬅⬆⬇➡/WASD 이동 · Space 점프 · 가까이 가면 E 또는 버튼으로 탐색/공격";
+    bottomBar.textContent = "방향키/WASD 또는 화면 버튼으로 이동 · 점프 · 가까이 가면 버튼으로 탐색/공격";
 
     this.interactBtn = document.createElement("button");
     this.interactBtn.className = "interact-btn hidden";

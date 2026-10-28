@@ -2,6 +2,7 @@ import "./style.css";
 import { WorldScene } from "./scene/worldScene";
 import { renderStartScreen } from "./ui/startScreen";
 import { Hud } from "./ui/hud";
+import { TouchControls } from "./ui/touchControls";
 import { openQuizModal } from "./ui/quizModal";
 import { renderEndingScreen } from "./ui/endingCard";
 import { AudioManager } from "./audio";
@@ -98,6 +99,8 @@ async function startGame(progress: Progress): Promise<void> {
   });
   hud.setMuted(settings.muted);
   hud.setRegionName("기억의 숲");
+
+  new TouchControls(root!, input);
   hud.setStatus(forestStatusText());
   syncEnergyHud();
 
